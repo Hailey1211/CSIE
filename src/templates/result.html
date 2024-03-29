@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px 0;
+            color: #333;
+        }
+
+        .csv-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .csv-content {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-right: 10px;
+            overflow-x: auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .csv-table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .csv-table th, .csv-table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            white-space: normal;
+            text-align: center;
+        }
+
+        .csv-table th {
+            background-color: #f0f0f0;
+        }
+
+        /* Conditional Background Colors */
+        .csv-table tr.same {
+            background-color: #d0ffd0; /* Light Green */
+        }
+
+        .csv-table tr.different {
+            background-color: #ffd0d0; /* Light Pink */
+        }
+    </style>
+</head>
+<body>
+    <h1>File Processing Result</h1>
+
+    <div class="csv-container">
+        <div class="csv-content">
+            <table class="csv-table">
+                <thead>
+                    <tr>
+                        <th>Original Texts</th>
+                        <th>Processed Content</th>
+                        {% if flag==0 %}
+                        <th>Original Labels</th>
+                        {% endif %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in range(original_texts|length) %}
+                        {% if processed_content[i] == original_labels[i] %}
+                            <tr class="same">
+                        {% else %}
+                            <tr class="different">
+                        {% endif %}
+                            <td>{{ original_texts[i] }}</td>
+                            <td>{{ processed_content[i] }}</td>
+                        {% if flag == 0 %}
+                            <td>{{ original_labels[i] }}</td>
+                        {% endif %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

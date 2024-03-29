@@ -1,0 +1,86 @@
+<html>
+<head>
+    <title>Emotion Recognition in Communication</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/hh.css') }}">
+    <!-- Import this CDN to use icons -->
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+</head>
+
+<body>
+<!-- Main container -->
+<div class="container">
+    <!-- msg-header section starts -->
+    <div class="msg-header">        <!--定义了头部部分的容器，用于显示用户的头像和用户名-->
+        <div class="container1">     <!--包含用户头像和用户名的容器-->
+            <!--<img src="user1.png" class="msgimg" />   --> <!--用户的头像，通过msgimg类来定义样式-->
+            <div class="active">   <!--用户活动状态的容器-->
+                <p>  Chat Emotion Recognition  </p>   <!--用户的名称-->
+            </div>
+        </div>
+    </div>
+    <!-- msg-header section ends -->
+
+    <!-- Chat inbox  -->
+    <div class="chat-page">
+        <div class="msg-inbox">
+            <div class="chats">
+                <!-- Message container -->
+                <div class="msg-page">
+                    <!-- Incoming messages -->
+
+                    <div class="received-chats">
+                        <div class="received-chats-img">
+                            <img src="https://img2.imgtp.com/2024/03/15/WVaaAPNU.jpg" />
+                        </div>
+                        <div class="received-msg">
+                            <div class="received-msg-inbox">
+                                <p>
+                                    Welcome to Emotion Recognition in Communication !
+                                </p>
+                                <span class="time" id="incoming-time-1"></span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- msg-bottom section -->
+
+            <div class="msg-bottom">
+                <div class="input-group">
+                    <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Write message..."
+                    />
+
+                    <span class="input-group-text send-icon">
+                <i class="bi bi-send"></i>
+              </span>
+                </div>
+            </div>
+
+        </div>
+
+<!-- 结果输出区域 -->
+
+    </div>
+
+</div>
+
+<!-- 在表单中添加一个隐藏的 input 标签 -->
+<input type="hidden" id="input-content" name="input_content">
+
+<script src="{{ url_for('static', filename='js/getTime.js') }}"></script>
+<script src="{{ url_for('static', filename='js/Chats-recognition.js') }}"></script>
+<script src="{{ url_for('static', filename='js/upload.js') }}"></script>
+
+</body>
+</html>
