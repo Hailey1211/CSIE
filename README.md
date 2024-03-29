@@ -1,5 +1,2 @@
-#CSIE project
-WebProject
-Flask
-python
+# CSIE project
 
